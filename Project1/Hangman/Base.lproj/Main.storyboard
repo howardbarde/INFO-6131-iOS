@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paper" translatesAutoresizingMaskIntoConstraints="NO" id="Se6-fe-UKK" userLabel="background">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start" translatesAutoresizingMaskIntoConstraints="NO" id="U32-qT-0lg" userLabel="image">
+                                <rect key="frame" x="0.0" y="59" width="393" height="379.66666666666669"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uI-Zb-sYb" userLabel="Game Field">
+                                <rect key="frame" x="10" y="438.66666666666674" width="373" height="379.33333333333326"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7QD-0U-aHC" userLabel="Score">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="113.66666666666667"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HANG[someone]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Oe-Ot-bcc">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="56.666666666666664"/>
+                                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yTK-WN-W7O">
+                                                <rect key="frame" x="0.0" y="56.666666666666629" width="373" height="57"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINS: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrE-BL-k4q">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="57"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOSSES: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vk8-Fs-9LN">
+                                                        <rect key="frame" x="186.66666666666663" y="0.0" width="186.33333333333337" height="57"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="yTK-WN-W7O" secondAttribute="trailing" id="69q-KU-ZXd"/>
+                                            <constraint firstItem="8Oe-Ot-bcc" firstAttribute="height" secondItem="7QD-0U-aHC" secondAttribute="height" multiplier="0.5" id="6Wj-Oh-BPz"/>
+                                            <constraint firstItem="yTK-WN-W7O" firstAttribute="top" secondItem="8Oe-Ot-bcc" secondAttribute="bottom" id="Crs-qM-lYn"/>
+                                            <constraint firstItem="yTK-WN-W7O" firstAttribute="height" secondItem="7QD-0U-aHC" secondAttribute="height" multiplier="0.5" id="VJA-G9-INa"/>
+                                            <constraint firstItem="8Oe-Ot-bcc" firstAttribute="top" secondItem="7QD-0U-aHC" secondAttribute="top" id="VLV-Ow-rEh"/>
+                                            <constraint firstAttribute="trailing" secondItem="8Oe-Ot-bcc" secondAttribute="trailing" id="VWk-7s-kNx"/>
+                                            <constraint firstItem="yTK-WN-W7O" firstAttribute="leading" secondItem="7QD-0U-aHC" secondAttribute="leading" id="rkz-3c-VYw"/>
+                                            <constraint firstItem="8Oe-Ot-bcc" firstAttribute="leading" secondItem="7QD-0U-aHC" secondAttribute="leading" id="wij-md-a6h"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ArO-LI-ntm" userLabel="Word">
+                                        <rect key="frame" x="0.0" y="113.66666666666667" width="373" height="53.333333333333329"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sfr-wd-dwM">
+                                                <rect key="frame" x="0.0" y="0.0" width="44.666666666666664" height="53.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="H" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MO2-Cw-Wxq">
+                                                        <rect key="frame" x="13" y="7.6666666666666288" width="18.666666666666671" height="38"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="MO2-Cw-Wxq" firstAttribute="centerY" secondItem="Sfr-wd-dwM" secondAttribute="centerY" id="3zp-E0-MwW"/>
+                                                    <constraint firstItem="MO2-Cw-Wxq" firstAttribute="centerX" secondItem="Sfr-wd-dwM" secondAttribute="centerX" id="8zn-LA-On3"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5O9-cg-Gys">
+                                                <rect key="frame" x="54.666666666666671" y="0.0" width="44.666666666666671" height="53.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNZ-ow-lxB">
+                                                        <rect key="frame" x="11.333333333333329" y="7.6666666666666288" width="22.333333333333329" height="38"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="HNZ-ow-lxB" firstAttribute="centerX" secondItem="5O9-cg-Gys" secondAttribute="centerX" id="a1y-j7-yXn"/>
+                                                    <constraint firstItem="HNZ-ow-lxB" firstAttribute="centerY" secondItem="5O9-cg-Gys" secondAttribute="centerY" id="rNW-Wl-Q2d"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0P-Wm-InW">
+                                                <rect key="frame" x="109.33333333333331" y="0.0" width="44.666666666666686" height="53.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTh-Vb-dRv">
+                                                        <rect key="frame" x="11.666666666666671" y="7.6666666666666288" width="21.333333333333329" height="38"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="wTh-Vb-dRv" firstAttribute="centerX" secondItem="V0P-Wm-InW" secondAttribute="centerX" id="CX7-jQ-cWE"/>
+                                                    <constraint firstItem="wTh-Vb-dRv" firstAttribute="centerY" secondItem="V0P-Wm-InW" secondAttribute="centerY" id="Ypc-3r-Nee"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kQb-Yn-jHz">
+                                                <rect key="frame" x="164" y="0.0" width="45" height="53.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmw-ik-0E6">
+                                                        <rect key="frame" x="6" y="7.6666666666666288" width="33.333333333333336" height="38"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="wmw-ik-0E6" firstAttribute="centerX" secondItem="kQb-Yn-jHz" secondAttribute="centerX" id="Z3O-1g-bxO"/>
+                                                    <constraint firstItem="wmw-ik-0E6" firstAttribute="centerY" secondItem="kQb-Yn-jHz" secondAttribute="centerY" id="uVa-g9-u6i"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaj-6X-6HG">
+                                                <rect key="frame" x="219" y="0.0" width="44.666666666666686" height="53.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clQ-OJ-IAI">
+                                                        <rect key="frame" x="9.6666666666666572" y="7.6666666666666288" width="25.333333333333329" height="38"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="clQ-OJ-IAI" firstAttribute="centerX" secondItem="zaj-6X-6HG" secondAttribute="centerX" id="5CT-KZ-lWy"/>
+                                                    <constraint firstItem="clQ-OJ-IAI" firstAttribute="centerY" secondItem="zaj-6X-6HG" secondAttribute="centerY" id="qpV-aa-qc3"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJk-Aj-zik">
+                                                <rect key="frame" x="273.66666666666669" y="0.0" width="44.666666666666686" height="53.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a47-6c-0nn">
+                                                        <rect key="frame" x="11" y="7.6666666666666288" width="22.333333333333329" height="38"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="a47-6c-0nn" firstAttribute="centerX" secondItem="lJk-Aj-zik" secondAttribute="centerX" id="1Qc-kB-O7f"/>
+                                                    <constraint firstItem="a47-6c-0nn" firstAttribute="centerY" secondItem="lJk-Aj-zik" secondAttribute="centerY" id="gMN-VL-bKl"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tg-dB-5Wz">
+                                                <rect key="frame" x="328.33333333333326" y="0.0" width="44.666666666666742" height="53.333333333333336"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bj1-d7-3nU">
+                                                        <rect key="frame" x="11.666666666666686" y="7.6666666666666288" width="21.333333333333329" height="38"/>
+                                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Bj1-d7-3nU" firstAttribute="centerX" secondItem="4tg-dB-5Wz" secondAttribute="centerX" id="kPM-iK-7rD"/>
+                                                    <constraint firstItem="Bj1-d7-3nU" firstAttribute="centerY" secondItem="4tg-dB-5Wz" secondAttribute="centerY" id="r1G-70-C6d"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="kQb-Yn-jHz" firstAttribute="centerX" secondItem="ArO-LI-ntm" secondAttribute="centerX" id="3OU-PA-K7N"/>
+                                            <constraint firstAttribute="width" secondItem="ArO-LI-ntm" secondAttribute="height" multiplier="7:1" id="GBr-Ia-2DH"/>
+                                            <constraint firstItem="kQb-Yn-jHz" firstAttribute="centerY" secondItem="ArO-LI-ntm" secondAttribute="centerY" id="v6g-P9-Od8"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SQ6-1Z-1gy" userLabel="Keyboard">
+                                        <rect key="frame" x="0.0" y="186.99999999999994" width="373" height="151.66666666666669"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Soi-1b-JVr" userLabel="Row 1">
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="47.333333333333336"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyw-hM-W7R" userLabel="Q">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Q" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YEJ-l6-hTQ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVV-DZ-CEc" userLabel="W">
+                                                        <rect key="frame" x="37.666666666666671" y="0.0" width="34.666666666666671" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="W" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uw-jK-Fuk"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1D-nt-y09">
+                                                        <rect key="frame" x="75.333333333333329" y="0.0" width="34.333333333333329" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="E" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mzv-y6-bvN"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNX-3h-TYD">
+                                                        <rect key="frame" x="112.66666666666669" y="0.0" width="34.666666666666657" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="R" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cgI-Je-YJ8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEc-xB-dFr">
+                                                        <rect key="frame" x="150.33333333333334" y="0.0" width="34.666666666666657" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="T" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xMQ-y9-SwQ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Boe-R7-Klc">
+                                                        <rect key="frame" x="188" y="0.0" width="34.666666666666629" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Y" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iy2-i1-zMs"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAR-LZ-6OZ">
+                                                        <rect key="frame" x="225.66666666666663" y="0.0" width="34.666666666666686" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="U" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ub7-gK-WtI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKk-Z2-vpv">
+                                                        <rect key="frame" x="263.33333333333331" y="0.0" width="34.333333333333314" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="I" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F3v-jx-9OU"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAt-78-PSq">
+                                                        <rect key="frame" x="300.66666666666669" y="0.0" width="34.666666666666686" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="O" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dua-fG-dct"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKq-vP-17p">
+                                                        <rect key="frame" x="338.33333333333326" y="0.0" width="34.666666666666742" height="47.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="P" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aem-2L-FNy"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView autoresizesSubviews="NO" opaque="NO" contentMode="center" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="V0X-4F-OOy" userLabel="Row 2">
+                                                <rect key="frame" x="18.666666666666657" y="50.333333333333371" width="335.66666666666674" height="47"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cu1-SE-1jE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="A" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tjE-Sg-Qr6"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38Q-BD-WCe">
+                                                        <rect key="frame" x="37.666666666666657" y="0.0" width="34.666666666666657" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="S" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d64-se-KAl"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pf-ge-HBg">
+                                                        <rect key="frame" x="75.333333333333329" y="0.0" width="34.666666666666671" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="D" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ozB-sT-b0R"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huc-l8-sk5">
+                                                        <rect key="frame" x="113" y="0.0" width="34.666666666666657" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="F" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FgF-Ib-kmC"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6A-ul-M6f">
+                                                        <rect key="frame" x="150.66666666666669" y="0.0" width="34.333333333333343" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="G" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rzO-eb-V4z"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDO-pW-ons">
+                                                        <rect key="frame" x="188" y="0.0" width="34.666666666666629" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="H" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XIy-K8-O3l"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIe-ST-jxy">
+                                                        <rect key="frame" x="225.66666666666669" y="0.0" width="34.666666666666686" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="J" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zH-Az-1Pr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-ia-LZE">
+                                                        <rect key="frame" x="263.33333333333331" y="0.0" width="34.666666666666686" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="K" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1no-5p-Dwm"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHd-sq-oZR">
+                                                        <rect key="frame" x="301" y="0.0" width="34.666666666666686" height="47"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="L" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B2Y-JG-doC"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="center" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ean-iQ-LiT" userLabel="Row 3">
+                                                <rect key="frame" x="56.333333333333343" y="100.33333333333337" width="260.33333333333326" height="51.333333333333343"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a17-Kj-G6m">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="51.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Z" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="btA-Tf-aOR"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGs-Db-vFr">
+                                                        <rect key="frame" x="37.666666666666671" y="0.0" width="34.666666666666671" height="51.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="X" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cyL-P7-OGk"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yld-AZ-yUJ">
+                                                        <rect key="frame" x="75.333333333333329" y="0.0" width="34.666666666666671" height="51.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="C" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bqB-BR-Vxg"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJs-k1-aai">
+                                                        <rect key="frame" x="113" y="0.0" width="34.333333333333343" height="51.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="V" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kgj-RH-PLy"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI3-2x-Xkr">
+                                                        <rect key="frame" x="150.33333333333331" y="0.0" width="34.666666666666657" height="51.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="B" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vkc-u0-CkC"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Be-2K-YDe">
+                                                        <rect key="frame" x="188" y="0.0" width="34.666666666666629" height="51.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="N" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eNX-KE-dA1"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ig9-tu-lz4">
+                                                        <rect key="frame" x="225.66666666666669" y="0.0" width="34.666666666666686" height="51.333333333333336"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="M" buttonSize="mini">
+                                                            <fontDescription key="titleFontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
+                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="keyPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bhP-8n-4gO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="yld-AZ-yUJ" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="54A-Ts-sEv"/>
+                                            <constraint firstItem="JGs-Db-vFr" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="8Hi-XK-mFv"/>
+                                            <constraint firstItem="zJs-k1-aai" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="A4P-ig-ilb"/>
+                                            <constraint firstItem="Cu1-SE-1jE" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="BFR-r2-Aye"/>
+                                            <constraint firstItem="v6A-ul-M6f" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="BTX-6H-87n"/>
+                                            <constraint firstItem="Soi-1b-JVr" firstAttribute="leading" secondItem="SQ6-1Z-1gy" secondAttribute="leading" id="CSx-re-OfN"/>
+                                            <constraint firstItem="a17-Kj-G6m" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="DJI-jx-o13"/>
+                                            <constraint firstItem="0Be-2K-YDe" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="JEt-dr-gJS"/>
+                                            <constraint firstItem="fI3-2x-Xkr" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="MTe-4n-nFQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Soi-1b-JVr" secondAttribute="trailing" id="PGq-ac-xFk"/>
+                                            <constraint firstItem="dHd-sq-oZR" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="PeQ-Dm-B1g"/>
+                                            <constraint firstItem="38Q-BD-WCe" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="VvZ-FM-IA0"/>
+                                            <constraint firstItem="Ig9-tu-lz4" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="XOr-e1-kCh"/>
+                                            <constraint firstItem="huc-l8-sk5" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="dbu-St-MAg"/>
+                                            <constraint firstItem="ggA-ia-LZE" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="hng-DK-TC8"/>
+                                            <constraint firstItem="MDO-pW-ons" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="hw3-PX-fcE"/>
+                                            <constraint firstItem="BIe-ST-jxy" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="q7J-md-cPl"/>
+                                            <constraint firstItem="2pf-ge-HBg" firstAttribute="width" secondItem="Hyw-hM-W7R" secondAttribute="width" id="uMc-NF-Ni0"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7QD-0U-aHC" firstAttribute="top" secondItem="0uI-Zb-sYb" secondAttribute="top" id="2YD-WK-LYy"/>
+                                    <constraint firstItem="ArO-LI-ntm" firstAttribute="top" secondItem="7QD-0U-aHC" secondAttribute="bottom" id="4hg-om-iGB"/>
+                                    <constraint firstItem="ArO-LI-ntm" firstAttribute="leading" secondItem="0uI-Zb-sYb" secondAttribute="leading" id="Fc6-0d-t6l"/>
+                                    <constraint firstItem="7QD-0U-aHC" firstAttribute="height" secondItem="0uI-Zb-sYb" secondAttribute="height" multiplier="0.3" id="ObF-Hm-HPT"/>
+                                    <constraint firstItem="7QD-0U-aHC" firstAttribute="leading" secondItem="0uI-Zb-sYb" secondAttribute="leading" id="W2c-9F-YfI"/>
+                                    <constraint firstAttribute="trailing" secondItem="ArO-LI-ntm" secondAttribute="trailing" id="cre-3m-2uP"/>
+                                    <constraint firstItem="SQ6-1Z-1gy" firstAttribute="leading" secondItem="0uI-Zb-sYb" secondAttribute="leading" id="h3a-qP-xF6"/>
+                                    <constraint firstItem="SQ6-1Z-1gy" firstAttribute="height" secondItem="0uI-Zb-sYb" secondAttribute="height" multiplier="0.4" id="h3v-tH-mSo"/>
+                                    <constraint firstAttribute="trailing" secondItem="7QD-0U-aHC" secondAttribute="trailing" id="keN-mw-6hf"/>
+                                    <constraint firstItem="SQ6-1Z-1gy" firstAttribute="top" secondItem="ArO-LI-ntm" secondAttribute="bottom" constant="20" id="n2Z-YX-Bbb"/>
+                                    <constraint firstAttribute="trailing" secondItem="SQ6-1Z-1gy" secondAttribute="trailing" id="y48-HP-ICf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Se6-fe-UKK" secondAttribute="bottom" id="0cP-Gt-Ulc"/>
+                            <constraint firstItem="0uI-Zb-sYb" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="4ta-xd-BlU"/>
+                            <constraint firstAttribute="trailing" secondItem="Se6-fe-UKK" secondAttribute="trailing" id="C9U-2n-1lt"/>
+                            <constraint firstItem="Se6-fe-UKK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GG1-BN-UnU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0uI-Zb-sYb" secondAttribute="trailing" constant="10" id="JhQ-5T-O0P"/>
+                            <constraint firstItem="0uI-Zb-sYb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="W6y-c9-Hy7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U32-qT-0lg" secondAttribute="trailing" id="dCZ-US-ahb"/>
+                            <constraint firstItem="U32-qT-0lg" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="fEp-8e-5Bt"/>
+                            <constraint firstItem="0uI-Zb-sYb" firstAttribute="top" secondItem="U32-qT-0lg" secondAttribute="bottom" id="oiZ-hX-hpJ"/>
+                            <constraint firstItem="U32-qT-0lg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vS6-l2-Jzv"/>
+                            <constraint firstItem="Se6-fe-UKK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="wg3-pV-l4I"/>
+                            <constraint firstItem="U32-qT-0lg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zng-yg-8Ol"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="U32-qT-0lg" id="lzp-Z0-gYO"/>
+                        <outlet property="lossesLabel" destination="Vk8-Fs-9LN" id="vSR-uD-OaV"/>
+                        <outlet property="winsLabel" destination="FrE-BL-k4q" id="vFG-bn-sfF"/>
+                        <outletCollection property="charViews" destination="Sfr-wd-dwM" collectionClass="NSMutableArray" id="mDa-73-1tN"/>
+                        <outletCollection property="charViews" destination="5O9-cg-Gys" collectionClass="NSMutableArray" id="e01-TV-ZzL"/>
+                        <outletCollection property="charViews" destination="V0P-Wm-InW" collectionClass="NSMutableArray" id="ZqQ-HM-KE4"/>
+                        <outletCollection property="charViews" destination="kQb-Yn-jHz" collectionClass="NSMutableArray" id="o3C-3m-K70"/>
+                        <outletCollection property="charViews" destination="zaj-6X-6HG" collectionClass="NSMutableArray" id="SSv-Bv-2j0"/>
+                        <outletCollection property="charViews" destination="lJk-Aj-zik" collectionClass="NSMutableArray" id="bhu-Mx-BNk"/>
+                        <outletCollection property="charViews" destination="4tg-dB-5Wz" collectionClass="NSMutableArray" id="IEV-tQ-nrH"/>
+                        <outletCollection property="keyButtons" destination="Hyw-hM-W7R" collectionClass="NSMutableArray" id="vlQ-Me-64h"/>
+                        <outletCollection property="keyButtons" destination="DVV-DZ-CEc" collectionClass="NSMutableArray" id="b2Q-1T-hsK"/>
+                        <outletCollection property="keyButtons" destination="T1D-nt-y09" collectionClass="NSMutableArray" id="tOm-h5-Nu6"/>
+                        <outletCollection property="keyButtons" destination="CNX-3h-TYD" collectionClass="NSMutableArray" id="6PO-Ue-tIR"/>
+                        <outletCollection property="keyButtons" destination="IEc-xB-dFr" collectionClass="NSMutableArray" id="sc8-we-YBw"/>
+                        <outletCollection property="keyButtons" destination="Boe-R7-Klc" collectionClass="NSMutableArray" id="Caa-UA-dEo"/>
+                        <outletCollection property="keyButtons" destination="XAR-LZ-6OZ" collectionClass="NSMutableArray" id="Xg5-5U-rBk"/>
+                        <outletCollection property="keyButtons" destination="iKk-Z2-vpv" collectionClass="NSMutableArray" id="oPm-cd-XMV"/>
+                        <outletCollection property="keyButtons" destination="ZAt-78-PSq" collectionClass="NSMutableArray" id="lAK-Vj-WA8"/>
+                        <outletCollection property="keyButtons" destination="NKq-vP-17p" collectionClass="NSMutableArray" id="Y2n-uy-DvZ"/>
+                        <outletCollection property="keyButtons" destination="Cu1-SE-1jE" collectionClass="NSMutableArray" id="I3y-Au-hTL"/>
+                        <outletCollection property="keyButtons" destination="38Q-BD-WCe" collectionClass="NSMutableArray" id="GMM-qi-esa"/>
+                        <outletCollection property="keyButtons" destination="2pf-ge-HBg" collectionClass="NSMutableArray" id="UCA-ft-CzN"/>
+                        <outletCollection property="keyButtons" destination="huc-l8-sk5" collectionClass="NSMutableArray" id="ZEG-pf-BDE"/>
+                        <outletCollection property="keyButtons" destination="v6A-ul-M6f" collectionClass="NSMutableArray" id="bpK-QN-szP"/>
+                        <outletCollection property="keyButtons" destination="MDO-pW-ons" collectionClass="NSMutableArray" id="bZC-Uy-Dsw"/>
+                        <outletCollection property="keyButtons" destination="BIe-ST-jxy" collectionClass="NSMutableArray" id="GEV-we-YFf"/>
+                        <outletCollection property="keyButtons" destination="ggA-ia-LZE" collectionClass="NSMutableArray" id="KWr-3y-XKf"/>
+                        <outletCollection property="keyButtons" destination="dHd-sq-oZR" collectionClass="NSMutableArray" id="2Lu-MS-W57"/>
+                        <outletCollection property="keyButtons" destination="a17-Kj-G6m" collectionClass="NSMutableArray" id="WvX-hQ-B8f"/>
+                        <outletCollection property="keyButtons" destination="JGs-Db-vFr" collectionClass="NSMutableArray" id="7ln-c1-RdJ"/>
+                        <outletCollection property="keyButtons" destination="yld-AZ-yUJ" collectionClass="NSMutableArray" id="50f-cH-zWV"/>
+                        <outletCollection property="keyButtons" destination="zJs-k1-aai" collectionClass="NSMutableArray" id="g7H-SK-FWj"/>
+                        <outletCollection property="keyButtons" destination="fI3-2x-Xkr" collectionClass="NSMutableArray" id="GnD-A9-cVm"/>
+                        <outletCollection property="keyButtons" destination="0Be-2K-YDe" collectionClass="NSMutableArray" id="nVW-Si-h8W"/>
+                        <outletCollection property="keyButtons" destination="Ig9-tu-lz4" collectionClass="NSMutableArray" id="0Re-8C-OdJ"/>
+                        <outletCollection property="charLabels" destination="MO2-Cw-Wxq" collectionClass="NSMutableArray" id="r5X-2E-nUW"/>
+                        <outletCollection property="charLabels" destination="HNZ-ow-lxB" collectionClass="NSMutableArray" id="yGA-Za-bxJ"/>
+                        <outletCollection property="charLabels" destination="wTh-Vb-dRv" collectionClass="NSMutableArray" id="C4d-fJ-WtY"/>
+                        <outletCollection property="charLabels" destination="wmw-ik-0E6" collectionClass="NSMutableArray" id="Iww-lK-dvw"/>
+                        <outletCollection property="charLabels" destination="clQ-OJ-IAI" collectionClass="NSMutableArray" id="CEW-j9-K78"/>
+                        <outletCollection property="charLabels" destination="a47-6c-0nn" collectionClass="NSMutableArray" id="Ae7-8L-q7H"/>
+                        <outletCollection property="charLabels" destination="Bj1-d7-3nU" collectionClass="NSMutableArray" id="pVh-VE-twG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.48091603053435" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paper" width="400" height="640"/>
+        <image name="start" width="682.66668701171875" height="682.66668701171875"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
