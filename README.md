@@ -1,2 +1,4 @@
 # INFO-6131-iOS
-iOS
+
+## Assignment 1 = SwiftUI components using MVVM
+
